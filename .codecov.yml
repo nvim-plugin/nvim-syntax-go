@@ -1,0 +1,48 @@
+coverage:
+  precision: 1
+  round: down
+  range: "70...100"
+
+  status:
+    project:
+      default: off
+      linux:
+        flags: linux
+        target: auto
+        threshold: 10%
+        if_not_found: success
+        if_ci_failed: error
+      darwin:
+        flags: darwin
+        target: auto
+        threshold: 10%
+        if_not_found: success
+        if_ci_failed: error
+    patch:
+      default: off
+      linux:
+        flags: linux
+        only_pulls: true
+        target: 50%
+        threshold: 10%
+      darwin:
+        flags: darwin
+        only_pulls: true
+        target: 50%
+        threshold: 10%
+    changes: false
+  ignore:
+    - "cmd"
+    - "vendor"
+
+flags:
+  linux:
+    paths:
+      - /
+  darwin:
+    paths:
+      - /
+
+comment:
+  behavior: default
+  require_changes: true
